@@ -41,10 +41,8 @@ def read_marks(name: List[str] = Query(...)):
     for i in arr:
         if i["name"]==nameY:
             marks.append(i["marks"])
-    data =  {"marks": marks }
-    json_str = json.dumps(data, separators=(', ', ': '))
 
-    return marks
+    return {"marks":marks}
 
    
 
