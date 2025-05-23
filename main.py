@@ -40,7 +40,7 @@ def read_marks(name: List[str] = Query(...)):
         if i["name"]==nameY:
             marks.append(i["marks"])
     print(marks)
-    return {"Marks":marks}
+    return marks
    
 
         
