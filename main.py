@@ -34,13 +34,15 @@ def read_marks(name: List[str] = Query(...)):
 
     marks=[]
 
-    for i in arr:
-        if i["name"]==nameX:
-            marks.append(i["marks"])
 
     for i in arr:
         if i["name"]==nameY:
             marks.append(i["marks"])
+
+    for i in arr:
+        if i["name"]==nameX:
+            marks.append(i["marks"])
+
 
     return {"marks":marks}
 
