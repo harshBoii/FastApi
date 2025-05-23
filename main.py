@@ -32,17 +32,24 @@ def read_marks(name: List[str] = Query(...)):
     nameX=name[0]
     nameY=name[1]
 
-    marks=[]
+    # marks=[]
 
 
-    for i in arr:
-        if i["name"]==nameY:
-            marks.append(i["marks"])
+    # for i in arr:
+    #     if i["name"]==nameY:
+    #         marks.append(i["marks"])
 
-    for i in arr:
-        if i["name"]==nameX:
-            marks.append(i["marks"])
+    # for i in arr:
+    #     if i["name"]==nameX:
+    #         marks.append(i["marks"])
 
+
+    marks = []
+    # Build a dictionary for fast lookup
+    name_to_marks = {entry["name"]: entry["marks"] for entry in arr}
+
+    # Preserve the order of names in query
+    marks = [name_to_marks.get(name, None) for name in name]
 
     return {"marks":marks}
 
