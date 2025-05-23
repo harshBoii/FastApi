@@ -44,7 +44,7 @@ def read_marks(name: List[str] = Query(...)):
     data =  {"marks": marks }
     json_str = json.dumps(data, separators=(', ', ': '))
 
-    return json_str
+    return marks
 
    
 
