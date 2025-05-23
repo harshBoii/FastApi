@@ -2,6 +2,8 @@ from fastapi import FastAPI , Query
 from pydantic import BaseModel
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
+import json
+
 
 
 
@@ -39,8 +41,11 @@ def read_marks(name: List[str] = Query(...)):
     for i in arr:
         if i["name"]==nameY:
             marks.append(i["marks"])
-    print(marks)
-    return {"marks":marks}
+    data =  {"marks": marks }
+    json_str = json.dumps(data, separators=(', ', ': '))
+
+    return json_str
+
    
 
         
